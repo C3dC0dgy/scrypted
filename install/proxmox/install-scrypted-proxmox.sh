@@ -22,10 +22,10 @@ SCRYPTED_VERSION=v0.137.0
 SCRYPTED_TAR_ZST=scrypted-$SCRYPTED_VERSION.tar.zst
 if [ -z "$VMID" ]
 then
-    VMID=10443
+    VMID=600
 fi
 
-SCRYPTED_BACKUP_VMID=10445
+SCRYPTED_BACKUP_VMID=601
 function prepareScryptedRestore() {
     pct config $VMID 2>&1 > /dev/null
     if [ "$?" != "0" ]
@@ -151,7 +151,7 @@ then
     exit 1
 fi
 
-pct set $VMID -net0 name=eth0,bridge=vmbr0,ip=dhcp,ip6=auto$HWADDR
+pct set $VMID -net0 name=eth0,bridge=vmbr60,ip=dhcp,ip6=auto$HWADDR
 if [ "$?" != "0" ]
 then
     echo ""
